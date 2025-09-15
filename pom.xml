@@ -20,7 +20,7 @@
 
         <kotlin.compiler.jvmTarget>21</kotlin.compiler.jvmTarget>
         <kotlin.version>2.1.21</kotlin.version>
-        <quarkus.platform.version>3.24.5</quarkus.platform.version>
+        <quarkus-platform.version>3.24.5</quarkus-platform.version>
 
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.3</surefire-plugin.version>
@@ -31,7 +31,7 @@
             <dependency>
                 <groupId>io.quarkus.platform</groupId>
                 <artifactId>quarkus-bom</artifactId>
-                <version>${quarkus.platform.version}</version>
+                <version>${quarkus-platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -90,7 +90,7 @@
             <plugin>
                 <groupId>io.quarkus.platform</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus.platform.version}</version>
+                <version>${quarkus-platform.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
