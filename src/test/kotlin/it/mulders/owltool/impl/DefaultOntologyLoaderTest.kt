@@ -23,7 +23,7 @@ class DefaultOntologyLoaderTest {
     }
 
     @Test
-    fun `should load classes from input`() {
+    fun `should load root classes from input`() {
         // Arrange
         val input = DefaultOntologyLoaderTest::class.java.getResourceAsStream("/ontologies/simple.ttl")
 
