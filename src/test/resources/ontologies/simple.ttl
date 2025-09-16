@@ -13,7 +13,7 @@ ex:Person
     rdfs:label   "A person."@en .
 
 ex:hasBirthDate
-    rdf:type    owl:ObjectProperty, owl:TransitiveProperty ;
+    rdf:type    owl:DatatypeProperty, owl:TransitiveProperty ;
     rdfs:domain ex:Person ;
     rdfs:range  xsd:date .
 
