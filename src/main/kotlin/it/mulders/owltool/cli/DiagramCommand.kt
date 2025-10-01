@@ -39,7 +39,11 @@ class DiagramCommand(private val generator: DiagramGenerator) : Runnable {
         }
 
         log.info("Generating diagram; input={}, namespace={}", path, namespace)
+
         val result = generator.generateDiagram(path, namespace)
+        result.map {
+            log.info("Generated diagram in {}", it.toAbsolutePath())
+        }
     }
 
     companion object {
