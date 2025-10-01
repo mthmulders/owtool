@@ -4,6 +4,8 @@ import it.mulders.owltool.DiagramGenerator
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import picocli.CommandLine
+import java.nio.file.Files
+import kotlin.io.path.Path
 import kotlin.jvm.java
 
 @CommandLine.Command(
@@ -27,9 +29,14 @@ class DiagramCommand(private val generator: DiagramGenerator) : Runnable {
     lateinit var namespace: String
 
     override fun run() {
-        log.info("Generating a diagram for $input")
+        val path = Path(System.getProperty("user.dir"), input)
 
         if (!namespace.endsWith("#")) namespace += "#"
+
+        if (!Files.exists(path)) {
+            log.error("The specified input file [{}] does not exist", path)
+            return
+        }
 
         log.info("Generating diagram; input={}, namespace={}", path, namespace)
         val result = generator.generateDiagram(path, namespace)
