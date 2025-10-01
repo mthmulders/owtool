@@ -3,13 +3,7 @@ package it.mulders.owltool.model
 data class Ontology(
     val classes: Collection<Class>,
 ) {
-    fun classCount(): Int {
-        return classes.countRecursively()
-    }
+    fun classCount(): Int = classes.countRecursively()
 
-    private fun Collection<Class>.countRecursively(): Int {
-        return this.asSequence()
-            .map { it.children.countRecursively() + 1 }
-            .sum()
-    }
+    private fun Collection<Class>.countRecursively(): Int = this.asSequence().map { it.children.countRecursively() + 1 }.sum()
 }

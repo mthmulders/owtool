@@ -13,7 +13,9 @@ import kotlin.jvm.java
     mixinStandardHelpOptions = true,
     description = ["Generate a diagram of the ontology in a namespace"],
 )
-class DiagramCommand(private val generator: DiagramGenerator) : Runnable {
+class DiagramCommand(
+    private val generator: DiagramGenerator,
+) : Runnable {
     @CommandLine.Parameters(
         arity = "1",
         description = ["Path to the ontology source"],
@@ -41,9 +43,7 @@ class DiagramCommand(private val generator: DiagramGenerator) : Runnable {
         log.info("Generating diagram; input={}, namespace={}", path, namespace)
 
         val result = generator.generateDiagram(path, namespace)
-        result.map {
-            log.info("Generated diagram in {}", it.toAbsolutePath())
-        }
+        result.map { log.info("Generated diagram in {}", it.toAbsolutePath()) }
     }
 
     companion object {

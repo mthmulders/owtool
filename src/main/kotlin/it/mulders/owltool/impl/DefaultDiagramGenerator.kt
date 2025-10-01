@@ -11,10 +11,13 @@ import kotlin.io.path.inputStream
 import kotlin.io.path.outputStream
 
 @ApplicationScoped
-class DefaultDiagramGenerator(val loader: OntologyLoader, val writer: DiagramWriter) : DiagramGenerator {
+class DefaultDiagramGenerator(
+    val loader: OntologyLoader,
+    val writer: DiagramWriter,
+) : DiagramGenerator {
     override fun generateDiagram(
         path: Path,
-        namespace: String
+        namespace: String,
     ): Result<Path> {
         log.info("Generating diagram for $path")
 

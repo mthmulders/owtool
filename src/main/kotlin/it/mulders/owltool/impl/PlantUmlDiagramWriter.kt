@@ -10,7 +10,10 @@ import java.io.OutputStreamWriter
 
 @ApplicationScoped
 class PlantUmlDiagramWriter : DiagramWriter {
-    override fun generateDiagram(ontology: Ontology, output: OutputStream) {
+    override fun generateDiagram(
+        ontology: Ontology,
+        output: OutputStream,
+    ) {
         BufferedWriter(OutputStreamWriter(output)).use { writer ->
             writer.writeOntologyToDiagram(ontology)
         }
@@ -21,9 +24,7 @@ class PlantUmlDiagramWriter : DiagramWriter {
         newLine()
         newLine()
 
-        ontology.classes.forEach { clazz ->
-            writeClassToDiagram(clazz)
-        }
+        ontology.classes.forEach { clazz -> writeClassToDiagram(clazz) }
 
         write("@enduml")
         newLine()
