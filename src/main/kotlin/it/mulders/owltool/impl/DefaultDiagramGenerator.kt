@@ -5,6 +5,7 @@ import it.mulders.owltool.DiagramWriter
 import it.mulders.owltool.OntologyLoader
 import jakarta.enterprise.context.ApplicationScoped
 import org.slf4j.LoggerFactory
+import java.io.OutputStream
 import java.nio.file.Path
 import kotlin.io.path.extension
 import kotlin.io.path.inputStream
@@ -25,7 +26,7 @@ class DefaultDiagramGenerator(
         log.info("Ontology loaded, found ${ontology.classCount()} classes in namespace $namespace")
 
         val outputPath = determineOutputPath(path)
-        writer.generateDiagram(ontology, outputPath.outputStream())
+        writer.generateDiagram(ontology, determineOutputStream(outputPath))
 
         return Result.success(outputPath)
     }
@@ -35,6 +36,8 @@ class DefaultDiagramGenerator(
         val newFileName = inputPath.fileName.toString().replace(extension, "puml")
         return inputPath.parent.resolve(newFileName)
     }
+
+    fun determineOutputStream(path: Path): OutputStream = path.outputStream()
 
     companion object {
         private val log = LoggerFactory.getLogger(DefaultDiagramGenerator::class.java)
