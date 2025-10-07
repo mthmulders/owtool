@@ -5,6 +5,7 @@ import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
 import assertk.assertions.isTrue
+import it.mulders.owltool.EXAMPLE_NAMESPACE
 import org.junit.jupiter.api.Test
 import java.io.ByteArrayOutputStream
 import java.nio.file.Path
@@ -47,7 +48,6 @@ class DefaultDiagramGeneratorTest {
     }
 
     companion object {
-        private const val EXAMPLE_NAMESPACE = "http://purl.org/net/ns/ex#"
         private val INPUT_PATH = Path("target", "test-classes", "ontologies", "simple.ttl")
     }
 }

@@ -3,6 +3,7 @@ package it.mulders.owltool.impl
 import assertk.assertThat
 import assertk.assertions.hasSize
 import assertk.assertions.isInstanceOf
+import it.mulders.owltool.EXAMPLE_NAMESPACE
 import it.mulders.owltool.model.Ontology
 import org.junit.jupiter.api.Test
 import java.io.ByteArrayInputStream
@@ -45,9 +46,5 @@ class DefaultOntologyLoaderTest {
         // Assert
         val patientClass = result.classes.single { it.name == "Person" }
         assertThat(patientClass.children).hasSize(1)
-    }
-
-    companion object {
-        private const val EXAMPLE_NAMESPACE = "http://purl.org/net/ns/ex#"
     }
 }

@@ -2,6 +2,7 @@ package it.mulders.owltool.model
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import it.mulders.owltool.EXAMPLE_NAMESPACE
 import org.junit.jupiter.api.Test
 
 class OntologyTest {
@@ -29,9 +30,5 @@ class OntologyTest {
 
         // Assert
         assertThat(result).isEqualTo(9)
-    }
-
-    companion object {
-        private const val EXAMPLE_NAMESPACE = "http://purl.org/net/ns/ex#"
     }
 }

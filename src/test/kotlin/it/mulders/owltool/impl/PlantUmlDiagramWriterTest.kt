@@ -2,6 +2,7 @@ package it.mulders.owltool.impl
 
 import assertk.assertThat
 import assertk.assertions.contains
+import it.mulders.owltool.EXAMPLE_NAMESPACE
 import it.mulders.owltool.model.Class
 import it.mulders.owltool.model.Ontology
 import org.junit.jupiter.api.Test
@@ -65,9 +66,5 @@ class PlantUmlDiagramWriterTest {
     private fun Ontology.generateDiagram(): String = ByteArrayOutputStream().use { stream ->
         diagramWriter.generateDiagram(this, stream)
         return stream.toString()
-    }
-
-    companion object {
-        private const val EXAMPLE_NAMESPACE = "http://purl.org/net/ns/ex#"
     }
 }
