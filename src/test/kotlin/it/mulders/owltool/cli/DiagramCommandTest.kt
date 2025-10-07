@@ -12,7 +12,7 @@ class DiagramCommandTest {
     @Test
     fun `should pass input ontology and namespace to generator`() {
         // Arrange
-        val inputPath = Path("target", "test-classes", "ontologies", "simple.puml")
+        val inputPath = Path("target", "test-classes", "ontologies", "simple.ttl")
         val outputPath = Path("java.io.tmpdir", "output.puml")
         var invoked = false
         val generator = DiagramGenerator { path, namespace ->
