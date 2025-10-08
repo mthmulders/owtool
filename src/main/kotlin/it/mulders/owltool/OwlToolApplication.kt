@@ -8,7 +8,7 @@ import picocli.CommandLine
 
 @CommandLine.Command(
     mixinStandardHelpOptions = true,
-    name = "hello",
+    name = "owltool",
     subcommands = [DiagramCommand::class],
 )
 @QuarkusMain
